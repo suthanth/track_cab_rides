@@ -16,6 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from track_rides_application.track_rides_api.views.area_views import AreaView
+from track_rides_application.track_rides_api.views.booking_views import BookingView
+from track_rides_application.track_rides_api.views.city_views import CityView
+from track_rides_application.track_rides_api.views.user_view import UserView
+from track_rides_application.track_rides_api.views.vehicle_views import VehicleView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('booking/', BookingView.as_view(), name='booking'),
+    path('area/', AreaView.as_view(), name='area'),
+    path('city/', CityView.as_view(), name='city'),
+    path('user/', UserView.as_view(), name='user'),
+    path('vehicle/', VehicleView.as_view(), name='vehicle'),
 ]
