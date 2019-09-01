@@ -25,7 +25,7 @@ SECRET_KEY = 's!r-546e4!rer_u&uq0_2nc@0b&)z)@*869+3z+&0w)y_@3d-u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'track_rides_application.track_rides_api',
 ]
 

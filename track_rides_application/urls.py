@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from track_rides_application.track_rides_api.views.area_views import AreaView
+from track_rides_application.track_rides_api.views.booking_task_status import BookingTaskStatus
 from track_rides_application.track_rides_api.views.booking_views import BookingView
 from track_rides_application.track_rides_api.views.city_views import CityView
 from track_rides_application.track_rides_api.views.user_view import UserView
@@ -29,4 +30,5 @@ urlpatterns = [
     path('city/', CityView.as_view(), name='city'),
     path('user/', UserView.as_view(), name='user'),
     path('vehicle/', VehicleView.as_view(), name='vehicle'),
+    path('bookingStatus/<str:task_id>', BookingTaskStatus.as_view(), name='booking-status')
 ]
