@@ -14,7 +14,7 @@ chmod +x setup.sh
 # Check if Homebrew is installed
 if ! command -v brew &> /dev/null; then
     echo -e "${YELLOW}Installing Homebrew...${NC}"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
