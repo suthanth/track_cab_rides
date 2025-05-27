@@ -1,5 +1,8 @@
 from celery import shared_task
 from django.db import transaction
+import logging
+
+logger = logging.getLogger(__name__)
 
 from track_rides_application.track_rides_api.serializers.booking_serializer import BookingSerializer
 
@@ -8,16 +11,16 @@ from track_rides_application.track_rides_api.serializers.booking_serializer impo
 def create_booking_task(booking_request):
     try:
         serializer = BookingSerializer()
-        print("Inside task1")
+        logger.debug("Inside task1")
         with transaction.atomic():
             application_data = serializer.create(booking_request)
-        print("Inside task2")
+        logger.debug("Inside task2")
         data={}
         data['app_id'] = application_data.id
         return data
 
     except Exception as exception:
-        print(str(exception))
+        logger.exception(str(exception))
         data = {}
         data['app_id'] = 0
         return data

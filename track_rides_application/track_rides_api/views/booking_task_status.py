@@ -1,6 +1,9 @@
 from celery.result import AsyncResult
 from rest_framework import generics, status
 from rest_framework.response import Response
+import logging
+
+logger = logging.getLogger(__name__)
 
 from track_rides_application.track_rides_api.models.booking_details import BookingDetails
 from track_rides_application.track_rides_api.serializers.booking_serializer import BookingSerializer
@@ -23,7 +26,7 @@ class BookingTaskStatus(generics.RetrieveAPIView):
         result = AsyncResult(task_id)
         if result.ready():
             result_id = result.result['app_id']
-            print('mmmmmmmmmm'+result_id)
+            logger.debug('mmmmmmmmmm%s', result_id)
             if result_id:
                 booking_details = self.queryset.get(pk=result_id)
                 data = {}
