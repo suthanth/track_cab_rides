@@ -3,4 +3,5 @@ djangorestframework==3.9.2
 requests==2.21
 PyGreSQL==5.0.7
 psycopg2==2.8.2
-celery==4.3.0
+celery==5.5.2
+pytz==2019.3
