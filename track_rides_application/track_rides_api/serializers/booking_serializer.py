@@ -16,7 +16,7 @@ class BookingSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user_id = UserDetails.objects.get(id=validated_data['user_id'])
-        vehicle_model_id = VehicleDetails(id=validated_data['vehicle_model_id'])
+        vehicle_model_id = VehicleDetails.objects.get(id=validated_data['vehicle_model_id'])
         from_area_id = AreaDetails.objects.get(id=validated_data['from_area_id'])
         to_area_id = AreaDetails.objects.get(id=validated_data['to_area_id'])
         from_city_id = CityDetails.objects.get(id=validated_data['from_city_id'])
