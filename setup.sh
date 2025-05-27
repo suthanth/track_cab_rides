@@ -64,4 +64,8 @@ EOL
 fi
 
 echo -e "${GREEN}Setup completed successfully!${NC}"
-echo -e "${YELLOW}Virtual environment is activated. You can start working on your project.${NC}" 
+echo -e "${YELLOW}Virtual environment is activated. You can start working on your project.${NC}"
+
+# Run unit tests
+echo -e "${GREEN}Running test suite...${NC}"
+python manage.py test track_rides_application.track_rides_api.tests.AreaViewTests.test_create_area -v 2
